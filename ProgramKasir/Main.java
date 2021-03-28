@@ -3,14 +3,14 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    int pilihan, harga, total, jumlah, bayar, kembalian;
+    static int pilihan, jumlah;
+    int harga;
+    double total;
+    double bayar;
+    double kembalian;
 
-    int MenghitungPembayaran ( int jumlah){
+    double MenghitungPembayaran (double jumlah){
         switch (pilihan) {
-            case 0:
-                System.exit();
-                break;
-
             case 1:
                 harga = 20000;
                 total = total + (harga * jumlah);
@@ -51,8 +51,8 @@ public class Main {
         System.out.println("Total : Rp. " + total);
     }
 
-    int MengitungKembalian (int kembalian){
-        kembalian = bayar - total;
+    double MengitungKembalian(){
+        kembalian = (bayar - total);
         return kembalian;
     }
 
@@ -81,7 +81,7 @@ public class Main {
                 System.out.print("Masukkan Jumlah : ");
                 in.jumlah = input.nextInt();
             } else {
-                System.out.println("Mohon maaf, pilihan anda salah!");
+
             }
             in.MenghitungPembayaran(in.jumlah);
         } while (in.pilihan != 6);
@@ -89,9 +89,10 @@ public class Main {
         in.MenampilkanTotal();
 
         System.out.print("Bayar : Rp. ");
-        in.bayar = input.nextInt();
+        in.bayar = input.nextDouble();
         in.MengitungKembalian();
         in.MenampilkanKembalian();
 
     }
+
 }
