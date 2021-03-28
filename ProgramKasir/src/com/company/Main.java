@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     static int pilihan, jumlah;
-    double harga;
+    int harga;
     double total;
-    int bayar;
+    double bayar;
     double kembalian;
 
-    double MenghitungPembayaran(int jumlah){
+    double MenghitungPembayaran (double jumlah){
         switch (pilihan) {
             case 1:
                 harga = 20000;
@@ -46,13 +46,13 @@ public class Main {
         return total;
     }
 
-    void MenampilkanTotal(){
+    void MenampilkanTotal () {
         System.out.println("=================================================");
         System.out.println("Total : Rp. " + total);
     }
 
-    double MengitungKembalian (int bayar){
-        kembalian = bayar - total;
+    double MengitungKembalian(){
+        kembalian = (bayar - total);
         return kembalian;
     }
 
@@ -72,7 +72,7 @@ public class Main {
             System.out.println("3. Pure Cocoa [Rp. 15.000]");
             System.out.println("4. Oreo Shake [Rp. 17.000]");
             System.out.println("5. Manggo Milk [Rp. 18.000]");
-            System.out.println("\n6. Hitung pembayaran");
+            System.out.println("6. Hitung pembayaran");
             System.out.println("=================================================");
             System.out.print("Masukkan pilihan : ");
             in.pilihan = input.nextInt();
@@ -83,17 +83,16 @@ public class Main {
             } else {
 
             }
-
             in.MenghitungPembayaran(in.jumlah);
-
         } while (in.pilihan != 6);
 
         in.MenampilkanTotal();
 
         System.out.print("Bayar : Rp. ");
-        in.bayar = input.nextInt();
-        in.MengitungKembalian(in.bayar);
+        in.bayar = input.nextDouble();
+        in.MengitungKembalian();
         in.MenampilkanKembalian();
 
     }
+
 }
